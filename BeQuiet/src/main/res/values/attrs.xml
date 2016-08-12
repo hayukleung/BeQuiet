@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <attr format="dimension" name="itemSize"/>
+  <attr format="dimension" name="itemSizeLarge"/>
+  <attr format="dimension" name="itemSizeXLarge"/>
+
+  <declare-styleable name="SwitchButton">
+    <attr format="boolean" name="checked"/>
+  </declare-styleable>
+
+  <!--仿iphone带进度的进度条，线程安全的View，可直接在线程中更新进度-->
+  <declare-styleable name="RoundProgressBar">
+    <attr format="color" name="roundColor"/>
+    <attr format="color" name="roundProgressColor"/>
+    <attr format="dimension" name="roundWidth"/>
+    <attr format="color" name="textColor"/>
+    <attr format="dimension" name="RPBtextSize"/>
+    <attr format="integer" name="max"/>
+    <attr format="boolean" name="textIsDisplayable"/>
+    <attr name="style">
+      <enum name="STROKE" value="0"/>
+      <enum name="FILL" value="1"/>
+    </attr>
+
+  </declare-styleable>
+
+
+  <!--支持Item切换动画效果的类似Gallery View   -->
+  <declare-styleable name="FancyCoverFlow">
+    <attr format="float" name="unselectedAlpha"/>
+    <attr format="float" name="unselectedSaturation"/>
+    <attr format="float" name="unselectedScale"/>
+    <attr format="integer" name="maxRotation"/>
+    <attr format="float" name="scaleDownGravity"/>
+    <attr format="integer" name="actionDistance">
+      <enum name="auto" value="2147483647"/>
+    </attr>
+  </declare-styleable>
+
+  <declare-styleable name="AndroidTagView">
+    <attr format="dimension" name="vertical_interval"/>
+    <attr format="dimension" name="horizontal_interval"/>
+
+    <attr format="dimension" name="container_border_width"/>
+    <attr format="dimension" name="container_border_radius"/>
+    <attr format="color" name="container_border_color"/>
+    <attr format="color" name="container_background_color"/>
+    <attr format="boolean" name="container_enable_drag"/>
+    <attr format="float" name="container_drag_sensitivity"/>
+    <attr format="enum" name="container_gravity">
+      <enum name="left" value="3"/>
+      <enum name="center" value="17"/>
+      <enum name="right" value="5"/>
+    </attr>
+
+    <attr format="dimension" name="tag_border_width"/>
+    <attr format="dimension" name="tag_corner_radius"/>
+    <attr format="dimension" name="tag_horizontal_padding"/>
+    <attr format="dimension" name="tag_vertical_padding"/>
+    <attr format="dimension" name="tag_text_size"/>
+    <attr format="dimension" name="tag_bd_distance"/>
+    <attr format="color" name="tag_text_color"/>
+    <attr format="color" name="tag_border_color"/>
+    <attr format="color" name="tag_background_color"/>
+    <attr format="integer" name="tag_max_length"/>
+    <attr format="boolean" name="tag_clickable"/>
+    <attr format="enum" name="tag_theme">
+      <enum name="none" value="-1"/>
+      <enum name="random" value="0"/>
+      <enum name="pure_cyan" value="1"/>
+      <enum name="pure_teal" value="2"/>
+    </attr>
+    <attr format="enum" name="tag_text_direction">
+      <enum name="ltr" value="3"/>
+      <enum name="rtl" value="4"/>
+    </attr>
+  </declare-styleable>
+</resources>

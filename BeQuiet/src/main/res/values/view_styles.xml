@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- match_parent离左右15dp的主色色按钮 -->
+  <style name="style_btn_large_corners5_red" parent="@style/Widget.AppCompat.Button.Borderless">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">40dp</item>
+    <item name="android:layout_marginLeft">15dp</item>
+    <item name="android:layout_marginRight">15dp</item>
+    <item name="android:background">@drawable/bg_border_corners5_main</item>
+    <item name="android:textSize">15sp</item>
+    <item name="android:textColor">@color/btn_text_color</item>
+  </style>
+  <!-- 中等大小的主色按钮 -->
+  <style name="style_btn_middle_corners5_red" parent="@style/Widget.AppCompat.Button.Borderless">
+    <item name="android:layout_width">125dp</item>
+    <item name="android:layout_height">40dp</item>
+    <item name="android:background">@drawable/bg_border_corners5_main</item>
+    <item name="android:textSize">15sp</item>
+    <item name="android:textColor">@color/btn_text_color</item>
+  </style>
+
+</resources>

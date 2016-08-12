@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="window_background">#ffffff</color>
+  <color name="main_color_normal">#7ac943</color>
+  <color name="main_color_pressed">#6aa933</color>
+
+  <color name="header_title">@color/white</color>
+
+  <color name="content_title">@color/grey_850</color>
+  <color name="content_time_now">#ffEA830A</color>
+  <color name="content_time">#ff7e7e7e</color>
+  <color name="content_from">#ff7e7e7e</color>
+  <color name="content">@color/grey_850</color>
+  <color name="content_footer">#ff7e7e7e</color>
+
+  <!-- 积极的 -->
+  <color name="positive_normal">#ffcc0022</color>
+  <color name="positive_pressed">#ff990022</color>
+  <color name="positive_disable">@color/grey_850</color>
+  <!-- 消极的 -->
+  <color name="negative_normal">@color/grey_100</color>
+  <color name="negative_pressed">@color/grey_600</color>
+  <color name="negative_disable">@color/grey_850</color>
+  <!-- 中性的 -->
+  <color name="neutral_normal">@color/grey_100</color>
+  <color name="neutral_pressed">@color/grey_100</color>
+</resources>

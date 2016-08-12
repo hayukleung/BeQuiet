@@ -1,0 +1,125 @@
+<resources>
+
+  <!-- Base application theme. -->
+  <style name="Theme.base" parent="Library">
+    <item name="android:windowBackground">@color/transparent</item>
+    <!--For support v7-->
+    <!--<item name="colorPrimary">@color/main_color_normal</item>-->
+    <!--<item name="colorPrimaryDark">@color/black</item>-->
+    <item name="toolbarStyle">@style/Toolbar</item>
+    <item name="toolbarNavigationButtonStyle">@style/Toolbar.Button.Navigation</item>
+    <!--<item name="colorAccent">@color/main_color_normal</item>-->
+
+    <!--For Library-->
+    <item name="statusBarColor">@color/window_background</item>
+    <item name="toolBarSize">@dimen/toolbar_size</item>
+    <item name="actionBarSize">@dimen/toolbar_size</item>
+    <item name="colorControlHighlight">#999</item>
+
+    <!-- For App -->
+    <item name="actionModeBackground">@drawable/bg_action_mode</item>
+    <item name="android:textColorHint">@color/textColorHint</item>
+    <item name="android:textColor">@color/textColor</item>
+    <item name="android:editTextColor">@color/textColor</item>
+    <item name="android:textColorPrimary">@color/textColor</item>
+    <item name="android:textSize">@dimen/h3</item>
+
+    <item name="itemSize">@dimen/item_size</item>
+    <item name="itemSizeLarge">50dp</item>
+    <item name="itemSizeXLarge">60dp</item>
+
+    <item name="dialogPlusStyle">@style/dialogPlusStyle</item>
+  </style>
+
+  <style name="AppTheme" parent="Theme.base">
+    <item name="android:selectableItemBackground">@drawable/abc_item_background_holo_dark</item>
+    <item name="selectableItemBackgroundBorderless">@drawable/abc_item_background_holo_dark</item>
+  </style>
+
+  <style name="welcome" parent="AppTheme">
+    <item name="@android:windowAnimationStyle">@style/welcome_animation</item>
+    <item name="android:title">false</item>
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowNoTitle">true</item>
+  </style>
+
+  <style name="welcome_animation" parent="@android:style/Animation.Activity">
+    <item name="android:activityCloseEnterAnimation">@android:anim/fade_in</item>
+    <item name="android:activityCloseExitAnimation">@android:anim/fade_out</item>
+  </style>
+
+  <style name="main" parent="AppTheme">
+    <item name="@android:windowAnimationStyle">@style/main_animation</item>
+  </style>
+
+  <style name="main_animation" parent="@android:style/Animation.Activity">
+    <item name="android:activityOpenEnterAnimation">@android:anim/fade_in</item>
+    <item name="android:activityOpenExitAnimation">@android:anim/fade_out</item>
+  </style>
+
+  <style name="dialogPlusStyle" parent="AppTheme">
+    <!--背景透明-->
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:backgroundDimEnabled">true</item>
+    <item name="android:backgroundDimAmount">0.6</item>
+  </style>
+
+  <style name="Toolbar" parent="Widget.AppCompat.Toolbar">
+    <item name="titleTextAppearance">@style/Toolbar.titleTextAppearance</item>
+    <item name="subtitleTextAppearance">
+      @style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle
+    </item>
+    <item name="android:minHeight">?attr/actionBarSize</item>
+    <item name="titleMargins">4dp</item>
+    <item name="maxButtonHeight">56dp</item>
+    <item name="collapseIcon">?attr/homeAsUpIndicator</item>
+    <item name="collapseContentDescription">@string/abc_toolbar_collapse_description</item>
+    <item name="contentInsetStart">0dp</item>
+    <item name="android:background">@color/white</item>
+  </style>
+
+  <style name="Toolbar.titleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <item name="android:textColor">@color/textColor</item>
+    <item name="android:textSize">18sp</item>
+  </style>
+
+  <style name="Animation"/>
+
+  <style name="Animation.Toast">
+    <item name="android:windowEnterAnimation">@anim/toast_enter</item>
+    <item name="android:windowExitAnimation">@anim/toast_exit</item>
+  </style>
+
+  <style name="Animation.Dropdown">
+    <item name="android:windowEnterAnimation">@anim/slide_in_down</item>
+    <item name="android:windowExitAnimation">@anim/slide_out_up</item>
+  </style>
+
+  <style name="Animation.Rising">
+    <item name="@android:windowEnterAnimation">@anim/slide_in_up</item>
+    <item name="@android:windowExitAnimation">@anim/slide_out_down</item>
+  </style>
+
+  <style name="Theme.Dialog" parent="AppTheme">
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:windowFrame">@null</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:backgroundDimEnabled">true</item>
+  </style>
+
+  <style name="Widget"/>
+
+  <style name="TextAppearance.TabIndicator" parent="Widget">
+    <item name="android:textSize">15sp</item>
+  </style>
+
+  <style name="Base.Toolbar.Button.Navigation" parent="android:Widget">
+    <item name="android:background">@drawable/bg_control</item>
+    <item name="android:minWidth">56dp</item>
+    <item name="android:scaleType">center</item>
+  </style>
+
+  <style name="Toolbar.Button.Navigation" parent="Base.Toolbar.Button.Navigation"/>
+</resources>

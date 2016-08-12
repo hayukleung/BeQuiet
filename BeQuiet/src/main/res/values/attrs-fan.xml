@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="Fan">
+    <attr name="FANSpeed" format="float"/>
+    <attr name="FANSrc" format="reference"/>
+    <attr name="FANBackground" format="reference"/>
+  </declare-styleable>
+</resources>

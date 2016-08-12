@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <integer name="viewfinder_border_width">7</integer>
+  <integer name="viewfinder_border_length">50</integer>
+  <fraction name="guide_title_margin_top">10%</fraction>
+  <fraction name="guide_point_margin_bottom">8%</fraction>
+  <fraction name="guide_bg1_margin_bottom">18%</fraction>
+</resources>

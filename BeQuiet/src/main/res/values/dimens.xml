@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="space_mini">5dp</dimen>
+  <dimen name="space_normal">8dp</dimen>
+  <dimen name="space_large">16dp</dimen>
+  <dimen name="space_xlarge">32dp</dimen>
+
+  <dimen name="toolbar_size">44dp</dimen>
+  <dimen name="item_size">50dp</dimen>
+
+  <!--字体大小-->
+  <dimen name="h1">18sp</dimen>
+  <dimen name="h3">15sp</dimen>
+</resources>

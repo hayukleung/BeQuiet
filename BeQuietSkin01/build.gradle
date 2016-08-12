@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  buildToolsVersion rootProject.ext.buildToolsVersion
+
+  defaultConfig {
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targetSdkVersion
+
+    applicationId "com.hayukleung.bequiet.skin.s01"
+    versionCode 1
+    versionName "1.0"
+  }
+
+  signingConfigs {
+    hayukleung {
+      keyAlias 'hayukleung'
+      keyPassword 'hayukleung'
+      storeFile file('./hayukleung.jks')
+      storePassword 'hayukleung'
+    }
+  }
+
+  buildTypes {
+    debug {
+      minifyEnabled false
+      shrinkResources false
+      signingConfig signingConfigs.hayukleung
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+    release {
+      minifyEnabled false
+      shrinkResources false
+      signingConfig signingConfigs.hayukleung
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+}
+
+dependencies {
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+
+  compile project(':core:library')
+
+  compile "com.android.support:appcompat-v7:${APPCOMPAT_V7_VERSION}"
+}

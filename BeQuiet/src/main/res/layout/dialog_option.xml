@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="40dp"
+        >
+
+      <TextView
+          android:id="@+id/demo"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@drawable/bg_button"
+          android:gravity="center"
+          android:minEms="6"
+          android:text="分贝值演示"
+          android:textColor="@color/btn_text_color_main"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          skin:enable="true"
+          />
+
+      <TextView
+          android:id="@+id/skins"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:background="@drawable/bg_button"
+          android:gravity="center"
+          android:minEms="6"
+          android:text="皮肤"
+          android:textColor="@color/btn_text_color_main"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          skin:enable="true"
+          />
+
+      <TextView
+          android:id="@+id/contacts"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:background="@drawable/bg_button"
+          android:gravity="center"
+          android:minEms="6"
+          android:text="联系我"
+          android:textColor="@color/btn_text_color_main"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          skin:enable="true"
+          />
+
+      <ImageView
+          android:id="@+id/close"
+          android:layout_width="60dp"
+          android:layout_height="60dp"
+          android:layout_marginBottom="50dp"
+          android:layout_marginTop="40dp"
+          android:src="@drawable/ic_close"
+          skin:enable="true"
+          />
+    </LinearLayout>
+  </ScrollView>
+</RelativeLayout>
