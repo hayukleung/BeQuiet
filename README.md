@@ -1,5 +1,6 @@
 # BeQuiet
 > Skin Changer Demo
+> [Demo下载地址](http://fir.im/bequiet)
 
 ## LibSkin
 - 感谢@burgessjp的https://github.com/burgessjp/ThemeSkinning
