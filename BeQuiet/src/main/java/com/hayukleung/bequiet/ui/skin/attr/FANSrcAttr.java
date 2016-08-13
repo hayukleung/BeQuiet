@@ -1,6 +1,5 @@
 package com.hayukleung.bequiet.ui.skin.attr;
 
-import android.graphics.drawable.Drawable;
 import android.view.View;
 import com.hayukleung.bequiet.ui.view.Fan;
 import solid.ren.skinlibrary.attr.base.SkinAttr;
@@ -21,10 +20,11 @@ public class FANSrcAttr extends SkinAttr {
       Fan fan = (Fan) view;
       if (RES_TYPE_NAME_COLOR.equals(attrValueTypeName)) {
         int color = SkinManager.getInstance().getColor(attrValueRefId);
-        fan.setImageColor(color);
+        fan.setFanSrcColor(color);
       } else if (RES_TYPE_NAME_DRAWABLE.equals(attrValueTypeName)) {
-        Drawable bg = SkinManager.getInstance().getDrawable(attrValueRefId);
-        fan.setImageDrawable(bg);
+        // fan.setImageDrawable(SkinManager.getInstance().getDrawable(attrValueRefId));
+        // 因为有个扇叶动态变更的需求，这里的SkinManager方法内置在Fan内部
+        fan.setFanSrcResource(attrValueRefId);
       }
     }
   }

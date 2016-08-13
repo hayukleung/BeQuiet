@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:skin="http://schemas.android.com/android/skin">
   <corners android:radius="@dimen/space_normal"/>
-  <solid android:color="@color/toastColorBg"/>
+  <solid
+      android:color="@color/toastColorBg"
+      skin:enable="true"/>
   <padding
       android:bottom="@dimen/space_normal"
       android:left="@dimen/space_normal"

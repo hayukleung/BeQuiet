@@ -1,5 +1,6 @@
 package com.hayukleung.bequiet.ui.main;
 
+import android.Manifest;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -18,11 +19,12 @@ import com.hayukleung.bequiet.ui.FullScreenActivity;
 import com.hayukleung.bequiet.ui.FullScreenDialog;
 import com.hayukleung.bequiet.ui.UiUtils;
 import com.hayukleung.bequiet.ui.about.AboutFragment;
+import com.hayukleung.bequiet.ui.dialog.Dialogs;
 import com.hayukleung.bequiet.ui.guide.GuideFragment;
 import com.hayukleung.bequiet.ui.skin.SkinFragment;
-import com.hayukleung.bequiet.ui.skin.Utils;
 import com.hayukleung.bequiet.ui.view.Fan;
 import com.mdroid.app.TranslucentStatusCompat;
+import com.mdroid.utils.PermissionsChecker;
 import com.orhanobut.dialogplus.DialogPlus;
 import java.util.Locale;
 
@@ -64,6 +66,11 @@ public class MainFragment extends BaseFragmentNoToolbar implements DecibelUI {
 
   @Override public void onResume() {
     super.onResume();
+    if (PermissionsChecker.lacksPermissions(getActivity(), Manifest.permission.RECORD_AUDIO)) {
+      // 缺少麦克风权限
+      Dialogs.requestPermission(getActivity(), "麦克风录音权限");
+      return;
+    }
     if (mRunning) {
       if (null == mDecibelRecorder) {
         mDecibelRecorder = new DecibelRecorder(this);

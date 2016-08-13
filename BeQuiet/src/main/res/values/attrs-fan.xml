@@ -2,7 +2,12 @@
 <resources>
   <declare-styleable name="Fan">
     <attr name="FANSpeed" format="float"/>
-    <attr name="FANSrc" format="reference"/>
+
+    <attr name="FANSrcL" format="reference"/>
+    <attr name="FANSrcM" format="reference"/>
+    <attr name="FANSrcH" format="reference"/>
+    <attr name="FANSrcX" format="reference"/>
+
     <attr name="FANBackground" format="reference"/>
   </declare-styleable>
 </resources>

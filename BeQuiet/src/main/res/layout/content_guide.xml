@@ -35,7 +35,10 @@
         android:layout_height="240dp"
         android:layout_centerInParent="true"
         app:FANBackground="@drawable/skin_bg_fan"
-        app:FANSrc="@drawable/skin_ic_fan"
+        app:FANSrcL="@drawable/skin_ic_fan_l"
+        app:FANSrcM="@drawable/skin_ic_fan_m"
+        app:FANSrcH="@drawable/skin_ic_fan_h"
+        app:FANSrcX="@drawable/skin_ic_fan_x"
         app:layout_marginBottomPercent="@fraction/guide_bg1_margin_bottom"
         skin:enable="true"
         />
@@ -63,7 +66,10 @@
         android:layout_height="240dp"
         android:layout_centerInParent="true"
         app:FANBackground="@drawable/skin_bg_fan"
-        app:FANSrc="@drawable/skin_ic_fan"
+        app:FANSrcL="@drawable/skin_ic_fan_l"
+        app:FANSrcM="@drawable/skin_ic_fan_m"
+        app:FANSrcH="@drawable/skin_ic_fan_h"
+        app:FANSrcX="@drawable/skin_ic_fan_x"
         skin:enable="true"
         />
   </android.support.percent.PercentRelativeLayout>
@@ -90,7 +96,10 @@
         android:layout_height="240dp"
         android:layout_centerInParent="true"
         app:FANBackground="@drawable/skin_bg_fan"
-        app:FANSrc="@drawable/skin_ic_fan"
+        app:FANSrcL="@drawable/skin_ic_fan_l"
+        app:FANSrcM="@drawable/skin_ic_fan_m"
+        app:FANSrcH="@drawable/skin_ic_fan_h"
+        app:FANSrcX="@drawable/skin_ic_fan_x"
         skin:enable="true"
         />
   </android.support.percent.PercentRelativeLayout>
@@ -117,7 +126,10 @@
         android:layout_height="240dp"
         android:layout_centerInParent="true"
         app:FANBackground="@drawable/skin_bg_fan"
-        app:FANSrc="@drawable/skin_ic_fan"
+        app:FANSrcL="@drawable/skin_ic_fan_l"
+        app:FANSrcM="@drawable/skin_ic_fan_m"
+        app:FANSrcH="@drawable/skin_ic_fan_h"
+        app:FANSrcX="@drawable/skin_ic_fan_x"
         app:layout_marginBottomPercent="@fraction/guide_point_margin_bottom"
         skin:enable="true"
         />

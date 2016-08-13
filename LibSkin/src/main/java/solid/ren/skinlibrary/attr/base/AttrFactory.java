@@ -4,6 +4,7 @@ import java.util.HashMap;
 import solid.ren.skinlibrary.attr.BackgroundAttr;
 import solid.ren.skinlibrary.attr.BackgroundTintAttr;
 import solid.ren.skinlibrary.attr.RippleColorAttr;
+import solid.ren.skinlibrary.attr.SrcAttr;
 import solid.ren.skinlibrary.attr.TextColorAttr;
 import solid.ren.skinlibrary.utils.SkinL;
 
@@ -21,6 +22,7 @@ public class AttrFactory {
     mSupportAttr.put("background", new BackgroundAttr());
     mSupportAttr.put("backgroundTint", new BackgroundTintAttr());
     mSupportAttr.put("rippleColor", new RippleColorAttr());
+    mSupportAttr.put("src", new SrcAttr());
     mSupportAttr.put("textColor", new TextColorAttr());
   }
 

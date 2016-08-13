@@ -84,7 +84,10 @@ public class App extends SkinBaseApplication {
     super.onCreate();
 
     SkinConfig.setCanChangeStatusColor(true);
-    SkinConfig.addSupportAttr("FANSrc", new FANSrcAttr());
+    SkinConfig.addSupportAttr("FANSrcL", new FANSrcAttr());
+    SkinConfig.addSupportAttr("FANSrcM", new FANSrcAttr());
+    SkinConfig.addSupportAttr("FANSrcH", new FANSrcAttr());
+    SkinConfig.addSupportAttr("FANSrcX", new FANSrcAttr());
     SkinConfig.addSupportAttr("FANBackground", new FANBackgroundAttr());
 
     mInstance = this;

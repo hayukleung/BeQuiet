@@ -33,7 +33,10 @@
       android:layout_centerInParent="true"
       android:layout_gravity="center_horizontal|bottom"
       app:FANBackground="@drawable/skin_bg_fan"
-      app:FANSrc="@drawable/skin_ic_fan"
+      app:FANSrcL="@drawable/skin_ic_fan_l"
+      app:FANSrcM="@drawable/skin_ic_fan_m"
+      app:FANSrcH="@drawable/skin_ic_fan_h"
+      app:FANSrcX="@drawable/skin_ic_fan_x"
       skin:enable="true"
       />
 

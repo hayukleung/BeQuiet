@@ -17,6 +17,7 @@ import butterknife.ButterKnife;
 import com.hayukleung.bequiet.R;
 import com.hayukleung.bequiet.ui.skin.Skin;
 import com.mdroid.utils.Ln;
+import solid.ren.skinlibrary.loader.SkinManager;
 
 /**
  * 分贝风扇
@@ -27,12 +28,24 @@ public class Fan extends RelativeLayout {
   @Bind(R.id.fan_src) View mFanSrc;
 
   private ObjectAnimator mObjectAnimator;
+  private float mLatestSpeed = 0;
   private float mLatestValue = 0;
   private float mSpeed;
   /**
    * 是否已经设置了大小
    */
   private boolean mSizeSet = false;
+
+  private static final int DB_L = 45;
+  private static final int DB_M = 55;
+  private static final int DB_H = 65;
+  private static final int DB_X = 70;
+
+  @DrawableRes private int mFanSrcL;
+  @DrawableRes private int mFanSrcM;
+  @DrawableRes private int mFanSrcH;
+  @DrawableRes private int mFanSrcX;
+  @DrawableRes private int mCurrentFanSrc;
 
   public Fan(Context context) {
     this(context, null);
@@ -52,8 +65,13 @@ public class Fan extends RelativeLayout {
 
     mFanBackground.setBackgroundResource(
         typedArray.getResourceId(R.styleable.Fan_FANBackground, 0));
-    mFanSrc.setBackgroundResource(
-        typedArray.getResourceId(R.styleable.Fan_FANSrc, 0));
+
+    mFanSrcL = typedArray.getResourceId(R.styleable.Fan_FANSrcL, 0);
+    mFanSrcM = typedArray.getResourceId(R.styleable.Fan_FANSrcM, 0);
+    mFanSrcH = typedArray.getResourceId(R.styleable.Fan_FANSrcH, 0);
+    mFanSrcX = typedArray.getResourceId(R.styleable.Fan_FANSrcX, 0);
+
+    mFanSrc.setBackgroundResource(mFanSrcL);
 
     typedArray.recycle();
   }
@@ -94,7 +112,7 @@ public class Fan extends RelativeLayout {
     if (null == skin) {
       return;
     }
-    setImageResource(skin.getDrawableResId());
+    setFanSrcResource(skin.getDrawableResId());
     setBackgroundResource(skin.getBackgroundResId());
   }
 
@@ -103,8 +121,8 @@ public class Fan extends RelativeLayout {
    *
    * @param resId
    */
-  private void setImageResource(@DrawableRes int resId) {
-    mFanSrc.setBackgroundResource(resId);
+  public void setFanSrcResource(@DrawableRes int resId) {
+    setFanSrcDrawable(SkinManager.getInstance().getDrawable(mCurrentFanSrc = resId));
   }
 
   /**
@@ -112,7 +130,7 @@ public class Fan extends RelativeLayout {
    *
    * @param drawable
    */
-  public void setImageDrawable(@Nullable Drawable drawable) {
+  private void setFanSrcDrawable(@Nullable Drawable drawable) {
     mFanSrc.setBackgroundDrawable(drawable);
   }
 
@@ -121,7 +139,7 @@ public class Fan extends RelativeLayout {
    *
    * @param color
    */
-  public void setImageColor(@ColorInt int color) {
+  public void setFanSrcColor(@ColorInt int color) {
     mFanSrc.setBackgroundColor(color);
   }
 
@@ -161,11 +179,33 @@ public class Fan extends RelativeLayout {
     if (null != mObjectAnimator && mObjectAnimator.isRunning()) {
       return;
     }
-    mObjectAnimator = ObjectAnimator.ofFloat(mFanSrc, "rotation", 0.0f, 360f).setDuration(10000);
+    mObjectAnimator = ObjectAnimator.ofFloat(mFanSrc, "rotation", 0.0f, 360f).setDuration(1000);
     mObjectAnimator.setRepeatCount(-1);
     mObjectAnimator.setInterpolator(new TimeInterpolator() {
       @Override public float getInterpolation(float input) {
-        return mLatestValue += Math.pow(2, (null == fanHelper ? mSpeed : fanHelper.getSpeedX()) / 10) / 2000;
+        final float speed = null == fanHelper ? mSpeed : fanHelper.getSpeedX();
+        if (mLatestSpeed < DB_L && speed >= DB_L) {
+        }
+        if (mLatestSpeed < DB_M && speed >= DB_M && mCurrentFanSrc == mFanSrcL) {
+          setFanSrcResource(mFanSrcM);
+        }
+        if (mLatestSpeed < DB_H && speed >= DB_H && mCurrentFanSrc != mFanSrcX) {
+          setFanSrcResource(mFanSrcH);
+        }
+        if (mLatestSpeed < DB_X && speed >= DB_X) {
+          setFanSrcResource(mFanSrcX);
+        }
+        if (mLatestSpeed > DB_H && speed <= DB_H) {
+          setFanSrcResource(mFanSrcH);
+        }
+        if (mLatestSpeed > DB_M && speed <= DB_M) {
+          setFanSrcResource(mFanSrcM);
+        }
+        if (mLatestSpeed > DB_L && speed <= DB_L) {
+          setFanSrcResource(mFanSrcL);
+        }
+        mLatestSpeed = speed;
+        return mLatestValue += Math.pow(2, speed / 10) / 4800;
       }
     });
     mObjectAnimator.start();
