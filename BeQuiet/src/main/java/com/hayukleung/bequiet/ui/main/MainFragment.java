@@ -18,7 +18,6 @@ import com.hayukleung.bequiet.ui.BaseFragmentNoToolbar;
 import com.hayukleung.bequiet.ui.FullScreenActivity;
 import com.hayukleung.bequiet.ui.FullScreenDialog;
 import com.hayukleung.bequiet.ui.UiUtils;
-import com.hayukleung.bequiet.ui.about.AboutFragment;
 import com.hayukleung.bequiet.ui.dialog.Dialogs;
 import com.hayukleung.bequiet.ui.guide.GuideFragment;
 import com.hayukleung.bequiet.ui.skin.SkinFragment;
@@ -161,12 +160,13 @@ public class MainFragment extends BaseFragmentNoToolbar implements DecibelUI {
         dialog.dismiss();
       }
     });
-    dialog.findViewById(R.id.contacts).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        Activities.startActivity(activity, AboutFragment.class);
-        dialog.dismiss();
-      }
-    });
+    dialog.findViewById(R.id.contacts).setVisibility(View.GONE);
+//    dialog.findViewById(R.id.contacts).setOnClickListener(new View.OnClickListener() {
+//      @Override public void onClick(View v) {
+//        Activities.startActivity(activity, AboutFragment.class);
+//        dialog.dismiss();
+//      }
+//    });
     dialog.findViewById(R.id.close).setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         dialog.dismiss();

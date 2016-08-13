@@ -4,13 +4,14 @@ import android.os.Bundle;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.hayukleung.bequiet.R;
+import com.hayukleung.bequiet.db.DBKeys;
 import com.hayukleung.bequiet.ui.Activities;
 import com.hayukleung.bequiet.ui.FullScreenActivity;
 import com.hayukleung.bequiet.ui.guide.GuideFragment;
 import com.hayukleung.bequiet.ui.main.MainActivity;
 import com.hayukleung.bequiet.ui.main.MainFragment;
-import com.hayukleung.bequiet.ui.skin.Utils;
 import com.hayukleung.bequiet.ui.view.Fan;
+import com.mdroid.DBUtils;
 
 /**
  * 欢迎页面
@@ -54,10 +55,9 @@ public class WelcomeActivity extends FullScreenActivity {
 
   private void start() {
     Activities.startActivity(WelcomeActivity.this, MainActivity.class, MainFragment.class);
-//    if (DBUtils.read(DBKeys.GUIDE_SHOW, true)) {
-//      Activities.startActivity(WelcomeActivity.this, FullScreenActivity.class, GuideFragment.class);
-//    }
-    Activities.startActivity(WelcomeActivity.this, FullScreenActivity.class, GuideFragment.class);
+    if (DBUtils.read(DBKeys.GUIDE_SHOW, true)) {
+      Activities.startActivity(WelcomeActivity.this, FullScreenActivity.class, GuideFragment.class);
+    }
   }
 
   @Override public void onBackPressed() {
