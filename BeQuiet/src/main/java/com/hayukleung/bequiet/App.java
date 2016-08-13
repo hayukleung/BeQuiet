@@ -6,17 +6,11 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Message;
 import android.os.StrictMode;
-import cn.sharesdk.framework.ShareSDK;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.internal.bind.TypeAdapters;
-import com.hayukleung.bequiet.json.IntegerAdapter;
 import com.hayukleung.bequiet.ui.skin.attr.FANBackgroundAttr;
 import com.hayukleung.bequiet.ui.skin.attr.FANSrcAttr;
 import com.mdroid.Library;
 import com.mdroid.PausedHandler;
 import com.mdroid.lifecycle.LifecycleDispatcher;
-import com.squareup.leakcanary.RefWatcher;
 import java.lang.ref.WeakReference;
 import solid.ren.skinlibrary.base.SkinBaseApplication;
 import solid.ren.skinlibrary.config.SkinConfig;
@@ -27,9 +21,9 @@ public class App extends SkinBaseApplication {
   protected Activity mActivity;
   protected boolean mVisible = false;
   protected PausedHandler mHandler;
-  private Gson mGson;
+//  private Gson mGson;
 
-  private RefWatcher mRefWatcher;
+//  private RefWatcher mRefWatcher;
 
   private boolean mShowTimeOut0;
   private boolean mShowTimeOut1;
@@ -58,13 +52,13 @@ public class App extends SkinBaseApplication {
     return mInstance.mVisible;
   }
 
-  public static synchronized Gson getGson() {
-    if (mInstance.mGson == null) {
-      mInstance.mGson = new GsonBuilder().registerTypeAdapterFactory(
-          TypeAdapters.newFactory(int.class, Integer.class, new IntegerAdapter())).create();
-    }
-    return mInstance.mGson;
-  }
+//  public static synchronized Gson getGson() {
+//    if (mInstance.mGson == null) {
+//      mInstance.mGson = new GsonBuilder().registerTypeAdapterFactory(
+//          TypeAdapters.newFactory(int.class, Integer.class, new IntegerAdapter())).create();
+//    }
+//    return mInstance.mGson;
+//  }
 
   private static SharedPreferences getPreferences() {
     return mInstance.getSharedPreferences("configuration.pref", Context.MODE_MULTI_PROCESS);
@@ -75,9 +69,9 @@ public class App extends SkinBaseApplication {
         Context.MODE_WORLD_READABLE | Context.MODE_WORLD_WRITEABLE);
   }
 
-  public static RefWatcher getRefWatcher() {
-    return mInstance.mRefWatcher;
-  }
+//  public static RefWatcher getRefWatcher() {
+//    return mInstance.mRefWatcher;
+//  }
 
   @Override public void onCreate() {
 
@@ -116,7 +110,7 @@ public class App extends SkinBaseApplication {
     }
 
     // Share sdk
-    ShareSDK.initSDK(getApplicationContext());
+//    ShareSDK.initSDK(getApplicationContext());
 
     ActivityLifecycle lifecycle = new ActivityLifecycle();
     lifecycle.setVisibleListener(new ActivityLifecycle.VisibleListener() {
