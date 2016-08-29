@@ -27,7 +27,7 @@ public abstract class BaseFragment extends SkinBaseFragment implements NotifyTyp
 
   @Override public void onDestroy() {
     super.onDestroy();
-    destroy();
+    // destroy();
     EventBus.bus().unregister(this);
   }
 

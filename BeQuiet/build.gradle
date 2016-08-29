@@ -132,29 +132,12 @@ android {
 
 dependencies {
   // test start
-//  testCompile "junit:junit:${JUNIT_VERSION}"
-//  testCompile "com.google.guava:guava-testlib:${GUAVA_TESTLIB}"
-//  testCompile "com.google.truth:truth:${TRUTH_VERSION}"
-//  testCompile "org.mockito:mockito-core:${MOCKITO_VERSION}"
-//  testCompile "org.robolectric:robolectric:${ROBOLECTRIC_VERSION}"
-//  testCompile "com.squareup.okhttp3:mockwebserver:${MOCKWEBSERVER_VERSION}"
-//  testCompile "org.ow2.asm:asm:${ASM_VERSION}"
   testCompile "com.android.support:support-v4:${SUPPORT_V4_VERSION}"
   // test end
 
   compile fileTree(dir: 'libs', include: ['*.jar'])
   provided project(':core:proguard-annotations')
   compile project(':core:base')
-//  compile project(':integration:sharesdk')
-//  compile project(':integration:amap')
-//  compile project(':integration:amap_navi')
-//  compile project(':integration:bdpush')
-//  compile project(':integration:pingpp')
-//  compile project(':integration:zbar')
-//  compile project(':integration:viewpagerindicator')
-//  compile project(':integration:glide-okhttp3')
-//  compile project(':integration:flexible-adapter')
-//  compile project(':integration:emojicon')
   compile project(':integration:dialogplus')
   compile project(':hayukleung:moduleSkin:LibSkin')
 
@@ -163,67 +146,5 @@ dependencies {
   compile "com.android.support:recyclerview-v7:${RECYCLERVIEW_V7_VERSION}"
   compile "com.android.support:design:${DESIGN_VERSION}"
 
-  // http://bugly.qq.com/androidfast
-//  compile "com.tencent.bugly:crashreport:${BUGLY_VERSION}"
-//  compile "com.bugtags.library:bugtags-lib:${BUGTAGS_LIB_VERSION}"
-
-  // icepick (https://github.com/frankiesardo/icepick)
-//  compile "frankiesardo:icepick:${ICEPICK_VERSION}"
-//  provided "frankiesardo:icepick-processor:${ICEPICK_PROCESSOR_VERSION}"
-
-  //
   compile "com.jakewharton:butterknife:${BUTTERKNIFE_VERSION}"
-
-  // https://github.com/ReactiveX/RxAndroid
-//  compile "io.reactivex:rxandroid:${RXANDROID_VERSION}"
-//  compile "io.reactivex:rxjava:${RXJAVA_VERSION}"
-  // https://github.com/JakeWharton/RxBinding
-  // Platform bindings:
-//  compile "com.jakewharton.rxbinding:rxbinding:${RXBINDING_VERSION}"
-  // 'support-v4' library bindings:
-//  compile "com.jakewharton.rxbinding:rxbinding-support-v4:${RXBINDING_SUPPORT_VERSION}"
-  // 'appcompat-v7' library bindings:
-//  compile "com.jakewharton.rxbinding:rxbinding-appcompat-v7:${RXBINDING_APPCOMPAT_VERSION}"
-  // 'design' library bindings:
-//  compile "com.jakewharton.rxbinding:rxbinding-design:${RXBINDING_DESIGN_VERSION}"
-  // 'recyclerview-v7' library bindings:
-//  compile "com.jakewharton.rxbinding:rxbinding-recyclerview-v7:${RXBINDING_RECYCLERVIEW_VERSION}"
-  // 'leanback-v17' library bindings:
-  // compile "com.jakewharton.rxbinding:rxbinding-leanback-v17:${RXBINDING_LEANBACK_VERSION}"
-
-  // https://github.com/trello/RxLifecycle
-//  compile "com.trello:rxlifecycle:${RXLIFECYCLE_VERSION}"
-  // If you want pre-written Activities and Fragments you can subclass as providers
-//  compile "com.trello:rxlifecycle-components:${RXLIFECYCLE_COMPONENTS_VERSION}"
-
-  // https://github.com/square/retrofit
-//  compile "com.squareup.retrofit2:retrofit:${RETROFIT_VERSION}"
-//  compile "com.squareup.retrofit2:converter-gson:${CONVERTER_GSON_VERSION}"
-//  compile "com.squareup.retrofit2:adapter-rxjava:${ADAPTER_RXJAVA_VERSION}"
-
-  // Dagger 2 and Compiler (http://stackoverflow.com/questions/28661693/dagger2-dependency-gradle)
-//  compile "com.google.dagger:dagger:${DAGGER_VERSION}"
-//  apt "com.google.dagger:dagger-compiler:${DAGGER_COMPILER_VERSION}"
-  // Needed for @Generated annotation (missing in Java <= 1.6; therefore, Android)
-  // compile 'javax.annotation:jsr250-api:1.0'
-
-//  compile "com.github.bumptech.glide:glide:${GLIDE_VERSION}"
-//  compile "jp.wasabeef:glide-transformations:${GLIDE_TRANSFORMATIONS_VERSION}"
-  // If you want to use the GPU Filters
-//  compile "jp.co.cyberagent.android.gpuimage:gpuimage-library:${GUPIMAGE_LIBRARY_VERSION}"
-
-//  debugCompile "com.squareup.leakcanary:leakcanary-android:${LEAKCANARY_VERSION}"
-//  releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:${LEAKCANARY__NO_OP_VERSION}"
-//  testCompile "com.squareup.leakcanary:leakcanary-android-no-op:${LEAKCANARY__NO_OP_VERSION}"
-
-//  compile "com.github.chrisbanes.photoview:library:${PHOTOVIEW_VERSION}"
-
-  // https://github.com/danylovolokh/VideoPlayerManager (在列表中播放视频)
-//  compile "com.github.danylovolokh:video-player-manager:${VIDEO_PLAYER_MANAGER_VERSION}"
-
-  // https://github.com/wasabeef/recyclerview-animators
-//  compile "jp.wasabeef:recyclerview-animators:${RECYCLERVIEW_ANIMATORS_VERSION}"
-
-  // https://github.com/ybq/Android-SpinKit
-//  compile "com.github.ybq:Android-SpinKit:${ANDROID_SPINKIT_VERSION}"
 }
