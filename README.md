@@ -1,14 +1,14 @@
 # BeQuiet
 > Skin Changer Demo
 > [Demo下载地址](http://fir.im/bequiet)
+> [Widget部件Demo](http://o95p8sbwq.bkt.clouddn.com/image/gif/bequiet-widget.gif)
 
 ## LibSkin
 - 感谢@burgessjp的https://github.com/burgessjp/ThemeSkinning
 - 感谢@fengjundev的https://github.com/fengjundev/Android-Skin-Loader
 
 ## BeQuiet
-> 主工程
-- 内置两套皮肤的分贝测量仪（一套默认，一套由BeQuietSkin01打包的apk提供，放置于主工程的assets文件夹内）
+> 主工程-内置两套皮肤的分贝测量仪（一套默认，一套由BeQuietSkin01打包的apk提供，放置于主工程的assets文件夹内）
 
 ## BeQuietSkin01
 > 皮肤包工程
