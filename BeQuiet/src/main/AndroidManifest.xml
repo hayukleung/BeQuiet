@@ -48,13 +48,24 @@
         android:screenOrientation="portrait"
         android:windowSoftInputMode="adjustPan|stateHidden"/>
 
-    <receiver android:name=".ui.widget.ShyaringanAppWidgetProvider">
+    <receiver android:name=".ui.widget.decorator.DecoratorAppWidgetProvider">
       <intent-filter>
         <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
       </intent-filter>
       <meta-data
           android:name="android.appwidget.provider"
-          android:resource="@xml/shyaringan_app_widget_info"/>
+          android:resource="@xml/app_widget_info_decorator"/>
     </receiver>
+
+    <receiver android:name=".ui.widget.clock.ClockAppWidgetProvider">
+      <intent-filter>
+        <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+      </intent-filter>
+      <meta-data
+          android:name="android.appwidget.provider"
+          android:resource="@xml/app_widget_info_clock"/>
+    </receiver>
+
+    <service android:name=".ui.widget.clock.ClockService"/>
   </application>
 </manifest>
