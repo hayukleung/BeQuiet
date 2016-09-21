@@ -1,7 +1,7 @@
 # BeQuiet
 > Skin Changer Demo
 > [Demo下载地址](http://fir.im/bequiet)
-> [Widget部件Demo](http://o95p8sbwq.bkt.clouddn.com/image/gif/bequiet-widget.gif)
+> [Widget部件详解](http://www.jianshu.com/p/2e75b695459a)
 
 ## LibSkin
 - 感谢@burgessjp的https://github.com/burgessjp/ThemeSkinning
