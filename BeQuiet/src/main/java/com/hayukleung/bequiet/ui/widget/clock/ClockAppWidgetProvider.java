@@ -1,9 +1,13 @@
 package com.hayukleung.bequiet.ui.widget.clock;
 
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.widget.RemoteViews;
 import com.hayukleung.bequiet.R;
 import com.mdroid.utils.Ln;
@@ -33,6 +37,21 @@ public class ClockAppWidgetProvider extends AppWidgetProvider {
     for (int i = 0; i < N; i++) {
       int appWidgetId = appWidgetIds[i];
       RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.app_widget_clock);
+
+      // for android
+      if (isIntentCorrect(context, "com.android.deskclock", "com.android.deskclock.DeskClock")) {
+        remoteViews.setOnClickPendingIntent(R.id.clock, getClockPendingIntent(context, "com.android.deskclock", "com.android.deskclock.DeskClock"));
+      }
+      // for nexus
+      if (isIntentCorrect(context, "com.google.android.deskclock", "com.android.deskclock.DeskClock")) {
+        remoteViews.setOnClickPendingIntent(R.id.clock, getClockPendingIntent(context, "com.google.android.deskclock", "com.android.deskclock.DeskClock"));
+      }
+      // for 奇酷360
+      if (isIntentCorrect(context, "com.yulong.android.xtime", "yulong.xtime.ui.main.XTimeActivity")) {
+        remoteViews.setOnClickPendingIntent(R.id.clock, getClockPendingIntent(context, "com.yulong.android.xtime", "yulong.xtime.ui.main.XTimeActivity"));
+      }
+      // TODO for other android phone
+
       // remoteViews.setFloat(R.id.shyaringan, "setRotation", 0);
       appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
     }
@@ -50,5 +69,21 @@ public class ClockAppWidgetProvider extends AppWidgetProvider {
 
   @Override public void onDisabled(Context context) {
     context.stopService(new Intent(context, ClockService.class));
+  }
+
+  private boolean isIntentCorrect(Context context, final String pkgName, final String clzName) {
+    Intent clockIntent;
+    ResolveInfo resolved;
+
+    clockIntent = new Intent().setComponent(new ComponentName(pkgName, clzName));
+    resolved = context.getPackageManager().resolveActivity(clockIntent, PackageManager.MATCH_DEFAULT_ONLY);
+    return null != resolved;
+  }
+
+  private PendingIntent getClockPendingIntent(Context context, final String pkgName, final String clzName) {
+    Intent clockIntent;
+
+    clockIntent = new Intent().setComponent(new ComponentName(pkgName, clzName));
+    return PendingIntent.getActivity(context, 2, clockIntent, PendingIntent.FLAG_UPDATE_CURRENT);
   }
 }

@@ -8,9 +8,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.IBinder;
+import android.util.SparseIntArray;
 import android.widget.RemoteViews;
+import com.hayukleung.base.ResourceManager;
 import com.hayukleung.bequiet.R;
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -26,15 +29,44 @@ public class ClockService extends Service {
 
   private Timer mTimer;
 
-  private Bitmap mHandS;
+  // private Bitmap mHandS;
   private Bitmap mHandM;
   private Bitmap mHandH;
 
+  private SparseIntArray mSecondMap = new SparseIntArray(60);
+
   @Override public void onCreate() {
     super.onCreate();
+  }
 
-    mTimer = new Timer();
+  @Override public int onStartCommand(Intent intent, int flags, int startId) {
+    if (null == mTimer) {
+      mTimer = new Timer();
+    }
     mTimer.schedule(new MyTimerTask(), 0, 1000);
+    return super.onStartCommand(intent, flags, startId);
+  }
+
+  @Override public void onDestroy() {
+    // if (null != mHandS && !mHandS.isRecycled()) {
+    // mHandS.recycle();
+    // mHandS = null;
+    // }
+    if (null != mHandM && !mHandM.isRecycled()) {
+      mHandM.recycle();
+      mHandM = null;
+    }
+    if (null != mHandH && !mHandH.isRecycled()) {
+      mHandH.recycle();
+      mHandH = null;
+    }
+    mTimer.cancel();
+    mTimer = null;
+    super.onDestroy();
+  }
+
+  @Override public IBinder onBind(Intent intent) {
+    return null;
   }
 
   private final class MyTimerTask extends TimerTask {
@@ -49,8 +81,7 @@ public class ClockService extends Service {
       // 获取Widgets管理器
       AppWidgetManager widgetManager = AppWidgetManager.getInstance(getApplicationContext());
       // widgetManager所操作的Widget对应的远程视图即当前Widget的layout文件
-      RemoteViews remoteView =
-          new RemoteViews(getPackageName(), R.layout.app_widget_clock);
+      RemoteViews remoteView = new RemoteViews(getPackageName(), R.layout.app_widget_clock);
       // remoteView.setImageViewResource(R.id.time_s, ResourceManager.getDrawableResId(getApplicationContext().getPackageName(), String.format("time_sec_%s", s)));
       // remoteView.setImageViewResource(R.id.time_m, ResourceManager.getDrawableResId(getApplicationContext().getPackageName(), String.format("time_min_%s", m)));
       // remoteView.setImageViewResource(R.id.time_h, ResourceManager.getDrawableResId(getApplicationContext().getPackageName(), String.format("time_hour_%s", h)));
@@ -69,17 +100,29 @@ public class ClockService extends Service {
       float rotateM = 360f / 60f * realM;
       float rotateH = 360f / 12f * realH;
 
-      if (null == mHandS || mHandS.isRecycled()) {
-        mHandS = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.widget_sec_00);
-      }
+      // if (null == mHandS || mHandS.isRecycled()) {
+      // mHandS = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.widget_sec_00);
+      // }
       if (null == mHandM || mHandM.isRecycled()) {
-        mHandM = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.widget_min_00);
+        mHandM = BitmapFactory.decodeResource(getApplicationContext().getResources(),
+            R.drawable.widget_min_00);
       }
       if (null == mHandH || mHandH.isRecycled()) {
-        mHandH = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.widget_hour_00);
+        mHandH = BitmapFactory.decodeResource(getApplicationContext().getResources(),
+            R.drawable.widget_hour_00);
       }
 
-      remoteView.setImageViewBitmap(R.id.time_s, rotateBitmap(mHandS, rotateS));
+
+      Integer secResId = mSecondMap.get(rawS, -1);
+      if (-1 == secResId) {
+        String s = rawS >= 10 ? String.valueOf(rawS) : String.format(Locale.CHINA, "0%d", rawS);
+        secResId = ResourceManager.getDrawableResId(getApplicationContext().getPackageName(),
+            String.format("time_sec_%s", s));
+        mSecondMap.put(rawS, secResId);
+      }
+      remoteView.setImageViewResource(R.id.time_s, secResId);
+
+      // remoteView.setImageViewBitmap(R.id.time_s, rotateBitmap(mHandS, rotateS));
       remoteView.setImageViewBitmap(R.id.time_m, rotateBitmap(mHandM, rotateM));
       remoteView.setImageViewBitmap(R.id.time_h, rotateBitmap(mHandH, rotateH));
 
@@ -89,28 +132,6 @@ public class ClockService extends Service {
           new ComponentName(getApplicationContext(), ClockAppWidgetProvider.class);
       widgetManager.updateAppWidget(componentName, remoteView);
     }
-  }
-
-  @Override public void onDestroy() {
-    if (null != mHandS && !mHandS.isRecycled()) {
-      mHandS.recycle();
-      mHandS = null;
-    }
-    if (null != mHandM && !mHandM.isRecycled()) {
-      mHandM.recycle();
-      mHandM = null;
-    }
-    if (null != mHandH && !mHandH.isRecycled()) {
-      mHandH.recycle();
-      mHandH = null;
-    }
-    mTimer.cancel();
-    mTimer = null;
-    super.onDestroy();
-  }
-
-  @Override public IBinder onBind(Intent intent) {
-    return null;
   }
 
   /**
