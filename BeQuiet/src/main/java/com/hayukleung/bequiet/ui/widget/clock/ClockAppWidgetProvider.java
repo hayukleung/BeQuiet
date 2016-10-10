@@ -39,17 +39,15 @@ public class ClockAppWidgetProvider extends AppWidgetProvider {
       RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.app_widget_clock);
 
       // for android
-      if (isIntentCorrect(context, "com.android.deskclock", "com.android.deskclock.DeskClock")) {
-        remoteViews.setOnClickPendingIntent(R.id.clock, getClockPendingIntent(context, "com.android.deskclock", "com.android.deskclock.DeskClock"));
-      }
+      goClockSetting(context, remoteViews, "com.android.deskclock", "com.android.deskclock.DeskClock");
       // for nexus
-      if (isIntentCorrect(context, "com.google.android.deskclock", "com.android.deskclock.DeskClock")) {
-        remoteViews.setOnClickPendingIntent(R.id.clock, getClockPendingIntent(context, "com.google.android.deskclock", "com.android.deskclock.DeskClock"));
-      }
+      goClockSetting(context, remoteViews, "com.google.android.deskclock", "com.android.deskclock.DeskClock");
+      // for sony xperia
+      goClockSetting(context, remoteViews, "com.sonyericsson.organizer", "com.sonyericsson.organizer.Organizer");
+      // for xiaomi
+      goClockSetting(context, remoteViews, "com.android.deskclock", "com.android.deskclock.DeskClockTabActivity");
       // for 奇酷360
-      if (isIntentCorrect(context, "com.yulong.android.xtime", "yulong.xtime.ui.main.XTimeActivity")) {
-        remoteViews.setOnClickPendingIntent(R.id.clock, getClockPendingIntent(context, "com.yulong.android.xtime", "yulong.xtime.ui.main.XTimeActivity"));
-      }
+      goClockSetting(context, remoteViews, "com.yulong.android.xtime", "yulong.xtime.ui.main.XTimeActivity");
       // TODO for other android phone
 
       // remoteViews.setFloat(R.id.shyaringan, "setRotation", 0);
@@ -69,6 +67,15 @@ public class ClockAppWidgetProvider extends AppWidgetProvider {
 
   @Override public void onDisabled(Context context) {
     context.stopService(new Intent(context, ClockService.class));
+  }
+
+  private void goClockSetting(Context context, RemoteViews remoteViews, final String pkgName, final String clzName) {
+    if (isIntentCorrect(context, pkgName, clzName)) {
+      remoteViews.setOnClickPendingIntent(R.id.clock, getClockPendingIntent(context, pkgName, clzName));
+      Ln.e("goClockSetting", "有这个类 --> " + pkgName + "/" + clzName);
+    } else {
+      Ln.e("goClockSetting", "木有这个类 --> " + pkgName + "/" + clzName);
+    }
   }
 
   private boolean isIntentCorrect(Context context, final String pkgName, final String clzName) {

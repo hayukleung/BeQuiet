@@ -147,4 +147,7 @@ dependencies {
   compile "com.android.support:design:${DESIGN_VERSION}"
 
   compile "com.jakewharton:butterknife:${BUTTERKNIFE_VERSION}"
+
+  // constraint layout
+  compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
 }
