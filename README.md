@@ -1,4 +1,7 @@
 # BeQuiet
+
+![shyaringan](./crop/shyaringan.gif)
+
 > Skin Changer Demo
 > [Demo下载地址](http://www.pgyer.com/bequiet)
 > [Widget部件详解](http://www.jianshu.com/p/2e75b695459a)
